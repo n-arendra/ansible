@@ -1,0 +1,15 @@
+- name: ec2 launcher
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Launch ec2 instance
+      ec2:
+        instance_type: t3a.small
+        key_name: UseMe
+        image: ami-0f5ee92e2d63afc18
+        region: ap-south-1
+        group: default
+        count: 2
+        vpc_subnet_id: subnet-037eb2d9fb4a50fb7
+        wait: yes
+        assign_public_ip: yes
